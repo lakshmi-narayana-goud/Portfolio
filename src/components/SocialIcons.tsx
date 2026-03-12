@@ -22,7 +22,14 @@ const SocialIcons = () => (
         </a>
       </span>
     </div>
-    <a className="resume-button" href="#" data-cursor="disable">
+    {/* Resume links to the PDF in /public/resume.pdf — place your PDF there */}
+    <a
+      className="resume-button"
+      href="/resume.pdf"
+      target="_blank"
+      rel="noreferrer"
+      data-cursor="disable"
+    >
       <HoverLinks text="RESUME" />
       <span><TbNotes /></span>
     </a>

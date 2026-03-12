@@ -143,14 +143,16 @@ const Landing = () => {
         renderer.dispose();
         if (container.contains(renderer.domElement)) container.removeChild(renderer.domElement);
       };
-    } catch { /* WebGL unavailable at runtime */ }
+    } catch { /* WebGL unavailable */ }
   }, [webglOk]);
 
   return (
     <div className="landing-section" id="landingDiv">
       {webglOk ? <div className="neural-canvas" ref={canvasRef} /> : <NeuralFallbackBg />}
       <div className="landing-scanlines" />
+
       <div className="landing-container">
+        {/* Left: name — fixed to never truncate */}
         <div className="landing-intro">
           <p className="landing-hello">Hello, I'm</p>
           <h1 className="landing-name">
@@ -159,6 +161,8 @@ const Landing = () => {
             <span className="landing-name-goud">GOUD</span>
           </h1>
         </div>
+
+        {/* Right: role + tags */}
         <div className="landing-info">
           <p className="landing-role-label">A</p>
           <div className="landing-role-wrap">
@@ -176,6 +180,7 @@ const Landing = () => {
           </div>
         </div>
       </div>
+
       <div className="landing-scroll">
         <span>SCROLL</span>
         <div className="scroll-line"><div className="scroll-ball" /></div>

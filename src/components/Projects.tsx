@@ -12,7 +12,7 @@ const PROJECTS = [
     tools: ["Python", "FastAPI", "WebSockets", "PostgreSQL", "Supabase", "LLaMA 3.1", "Groq", "JavaScript", "Web Speech API"],
     scale: ["70+ files", "16 DB tables", "20+ API endpoints", "Cloud deployed"],
     github: "https://github.com/suunyshu-sketch",
-    live: null,
+    live: "https://cloud-jarvis-p6zu.onrender.com/",
     gradient: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
     accent: "#06b6d4",
     badge: "PRODUCTION",
