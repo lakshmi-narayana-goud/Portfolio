@@ -45,9 +45,18 @@ const MainContainer = () => {
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((t) => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);
+
+    // Pause Lenis when a detail panel is open so panel can scroll normally
+    const onPause = () => lenis.stop();
+    const onResume = () => lenis.start();
+    window.addEventListener("lenis-pause", onPause);
+    window.addEventListener("lenis-resume", onResume);
+
     return () => {
       lenis.destroy();
       document.body.style.overflow = "";
+      window.removeEventListener("lenis-pause", onPause);
+      window.removeEventListener("lenis-resume", onResume);
     };
   }, []);
 

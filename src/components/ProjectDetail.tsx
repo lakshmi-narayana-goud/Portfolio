@@ -135,10 +135,16 @@ const ProjectDetail = ({ projectKey, onClose }: Props) => {
   const project = PROJECTS[projectKey];
 
   useEffect(() => {
+    // Pause Lenis so desktop wheel scroll works inside this panel
+    window.dispatchEvent(new CustomEvent("lenis-pause"));
     document.body.style.overflow = "hidden";
+
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", onKey);
+
     return () => {
+      // Resume Lenis when panel closes
+      window.dispatchEvent(new CustomEvent("lenis-resume"));
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
     };
@@ -148,7 +154,7 @@ const ProjectDetail = ({ projectKey, onClose }: Props) => {
 
   return (
     <div className="pd-overlay" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="pd-panel" style={{ "--pd-accent": project.accent } as React.CSSProperties}>
+      <div className="pd-panel" style={{ "--pd-accent": project.accent } as React.CSSProperties} onWheel={(e) => e.stopPropagation()}>
 
         {/* Header bar */}
         <div className="pd-header glass">
