@@ -25,13 +25,29 @@ const MainContainer = () => {
   const webglOk = isWebGLSupported();
 
   useEffect(() => {
-    const lenis = new Lenis({ duration: 1.6, smoothWheel: true, lerp: 0.08 });
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 1024;
+    
+    // On mobile: ensure native scroll works, skip Lenis entirely
+    if (isMobile) {
+      document.body.style.overflow = "";
+      document.body.style.overflowY = "auto";
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.overflowY = "auto";
+      document.documentElement.style.height = "auto";
+      document.body.style.height = "auto";
+      return;
+    }
+
+    // Desktop only: smooth scroll via Lenis
+    document.body.style.overflow = "hidden";
+    const lenis = new Lenis({ duration: 1.4, smoothWheel: true, lerp: 0.1 });
     lenisRef.current = lenis;
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((t) => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);
     return () => {
       lenis.destroy();
+      document.body.style.overflow = "";
     };
   }, []);
 

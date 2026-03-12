@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const STATS = [
   { value: "8.57", label: "CGPA / 10", suffix: "" },
-  { value: "3",    label: "Major Projects", suffix: "+" },
+  { value: "2",    label: "Major Projects", suffix: "" },
   { value: "2",    label: "Hackathon Awards", suffix: "" },
   { value: "2025", label: "CITD Winner", suffix: "" },
 ];
@@ -41,14 +41,15 @@ const About = () => {
           </div>
         </div>
         <p className="about-bio">
-          Computer Science undergraduate at IARE, Hyderabad — specializing in{" "}
-          <span className="about-highlight">Artificial Intelligence</span>,{" "}
-          <span className="about-highlight">Machine Learning</span>, and{" "}
-          <span className="about-highlight">Computer Vision</span>. Builder of
-          real-world AI systems including JARVIS — a production-deployed full-stack
-          AI assistant with voice interaction, multilingual support, and cloud
-          deployment. Passionate about making AI transparent, explainable, and
-          genuinely useful.
+          Second-year Computer Science undergraduate at IARE, Hyderabad. I build
+          AI systems that solve real problems — my focus is on{" "}
+          <span className="about-highlight">Machine Learning</span>,{" "}
+          <span className="about-highlight">Computer Vision</span>, and{" "}
+          <span className="about-highlight">Full-Stack AI</span>. I built JARVIS — a
+          production-deployed AI assistant — to understand how real AI products work
+          end-to-end, from database design to real-time streaming to cloud deployment.
+          I also study how AI explains its decisions, which led me to build an
+          explainable AI financial advisor using SHAP. I learn by building.
         </p>
         <div className="about-meta">
           <span className="about-meta-item">

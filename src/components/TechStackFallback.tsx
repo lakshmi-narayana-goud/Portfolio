@@ -9,10 +9,14 @@ const TECHS = [
   { name: "PostgreSQL",   color: "#1e40af" },
   { name: "Scikit-learn", color: "#f59e0b" },
   { name: "SHAP",         color: "#8b5cf6" },
-  { name: "Java",         color: "#ef4444" },
-  { name: "Bash",         color: "#64748b" },
-  { name: "JavaScript",   color: "#eab308" },
-  { name: "Supabase",     color: "#10b981" },
+  { name: "RAG",          color: "#06b6d4" },
+  { name: "LLaMA 3.1",    color: "#a855f7" },
+  { name: "Groq API",     color: "#22d3ee" },
+  { name: "Cybersecurity",color: "#ef4444" },
+  { name: "JWT Auth",     color: "#eab308" },
+  { name: "WebSockets",   color: "#3b82f6" },
+  { name: "Supabase",     color: "#3ecf8e" },
+  { name: "Java",         color: "#f97316" },
 ];
 
 const TechStackFallback = () => (
