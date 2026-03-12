@@ -1,0 +1,56 @@
+.tsf-section {
+  padding: 80px 0 120px;
+}
+.tsf-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 56px;
+}
+.tsf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.tsf-bubble {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: var(--radius-full);
+  border-color: var(--bubble-color, var(--accent-cyan));
+  border-width: 1px;
+  cursor: default;
+  animation: bubbleIn 0.6s both ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  background: rgba(255,255,255,0.03);
+}
+.tsf-bubble:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--bubble-color) 30%, transparent);
+  background: color-mix(in srgb, var(--bubble-color) 10%, transparent);
+}
+.tsf-bubble-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px currentColor;
+}
+.tsf-bubble-name {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.tsf-bubble:hover .tsf-bubble-name {
+  color: var(--text);
+}
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}

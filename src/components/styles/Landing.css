@@ -228,3 +228,32 @@
   .landing-tags { justify-content: flex-end; }
   .landing-badge { margin-left: auto; }
 }
+
+/* ── CSS Neural Fallback (no WebGL) ── */
+.neural-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.nf-node {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--nf-color, var(--accent-cyan));
+  box-shadow: 0 0 16px var(--nf-color, var(--accent-cyan));
+  animation: nfFloat 4s ease-in-out infinite;
+  opacity: 0.6;
+}
+@keyframes nfFloat {
+  0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+  50%       { transform: translate(8px, -12px); opacity: 0.8; }
+}
+.nf-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
