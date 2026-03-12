@@ -295,4 +295,3 @@ const ProjectDetail = ({ projectKey, onClose }: Props) => {
 };
 
 export default ProjectDetail;
-export { PROJECTS };

@@ -40,7 +40,7 @@ const MainContainer = () => {
 
     // Desktop only: smooth scroll via Lenis
     document.body.style.overflow = "hidden";
-    const lenis = new Lenis({ duration: 1.4, smoothWheel: true, lerp: 0.1, prevent: (node) => node.classList.contains('pd-content') });
+    const lenis = new Lenis({ duration: 1.4, smoothWheel: true, lerp: 0.1 });
     lenisRef.current = lenis;
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((t) => lenis.raf(t * 1000));

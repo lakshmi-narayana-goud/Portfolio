@@ -13,7 +13,15 @@ const ACHIEVEMENTS = [
   },
 ];
 
-const CERTS = [
+interface Cert {
+  icon: string;
+  title: string;
+  issuer: string;
+  date: string;
+  skills?: string;
+}
+
+const CERTS: Cert[] = [
   {
     icon: "🔐", title: "Introduction to Cybersecurity",
     issuer: "Cisco", date: "Sep 2025",
@@ -75,6 +83,7 @@ const Achievements = () => (
               <div>
                 <div className="ach-cert-title">{title}</div>
                 <div className="ach-cert-meta">{issuer} · {date}</div>
+                {skills && <div className="ach-cert-skills">{skills}</div>}
               </div>
             </div>
           ))}
