@@ -9,6 +9,8 @@ import Education from "./Education";
 import Projects from "./Projects";
 import Achievements from "./Achievements";
 import Contact from "./Contact";
+import TechStackFallback from "./TechStackFallback";
+import { WebGLErrorBoundary, isWebGLSupported } from "./WebGLErrorBoundary";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -20,8 +22,8 @@ const TechStack = lazy(() => import("./TechStack"));
 const MainContainer = () => {
   const lenisRef = useRef<Lenis | null>(null);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
+  const webglOk = isWebGLSupported();
 
-  /* ── Lenis smooth scroll ── */
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.6, smoothWheel: true, lerp: 0.08 });
     lenisRef.current = lenis;
@@ -30,23 +32,18 @@ const MainContainer = () => {
     gsap.ticker.lagSmoothing(0);
     return () => {
       lenis.destroy();
-      gsap.ticker.remove((t) => lenis.raf(t * 1000));
     };
   }, []);
 
-  /* ── Resize ── */
   useEffect(() => {
     const handle = () => setIsDesktop(window.innerWidth > 1024);
     window.addEventListener("resize", handle);
     return () => window.removeEventListener("resize", handle);
   }, []);
 
-  /* ── GSAP scroll animations ── */
   useEffect(() => {
     const ctx = gsap.context(() => {
-      /* Navbar fade in */
       gsap.from(".header", { y: -60, opacity: 0, duration: 1, delay: 0.5, ease: "power3.out" });
-      /* Section reveals */
       gsap.utils.toArray<Element>(".section-reveal").forEach((el) => {
         gsap.from(el, {
           scrollTrigger: { trigger: el, start: "top 85%" },
@@ -69,9 +66,15 @@ const MainContainer = () => {
         <section className="section-reveal"><Education /></section>
         <Projects />
         {isDesktop && (
-          <Suspense fallback={<div style={{ height: "100vh" }} />}>
-            <TechStack />
-          </Suspense>
+          webglOk ? (
+            <WebGLErrorBoundary fallback={<TechStackFallback />}>
+              <Suspense fallback={<div style={{ height: "60vh" }} />}>
+                <TechStack />
+              </Suspense>
+            </WebGLErrorBoundary>
+          ) : (
+            <TechStackFallback />
+          )
         )}
         <section className="section-reveal"><Achievements /></section>
         <Contact />
