@@ -175,3 +175,36 @@ body::after {
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/* Mobile social icons — show as row at bottom of landing */
+@media (max-width: 899px) {
+  .icons-section {
+    position: relative;
+    left: auto;
+    transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: rgba(3,7,18,0.6);
+    backdrop-filter: blur(10px);
+  }
+  .social-icons {
+    display: flex !important;
+    flex-direction: row !important;
+    position: relative !important;
+    left: auto !important;
+    bottom: auto !important;
+    padding: 0 !important;
+    gap: 20px !important;
+  }
+  .social-icons span {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .resume-button {
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+}

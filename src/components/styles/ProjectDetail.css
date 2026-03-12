@@ -18,6 +18,7 @@
   width: 100%;
   max-width: 860px;
   height: 100vh;
+  height: 100dvh; /* dynamic viewport height for mobile */
   background: var(--bg2);
   border-left: 1px solid var(--glass-border);
   display: flex;
@@ -79,11 +80,14 @@
 
 /* ── Scrollable content ── */
 .pd-content {
-  overflow-y: auto;
+  overflow-y: scroll; /* force scroll always visible */
   overflow-x: hidden;
   flex: 1;
+  min-height: 0; /* critical: allows flex child to shrink below content size */
   padding: 48px 40px;
   -webkit-overflow-scrolling: touch;
+  /* Prevent Lenis from intercepting — handled via JS but belt+suspenders */
+  overscroll-behavior: contain;
 }
 .pd-content::-webkit-scrollbar { width: 3px; }
 .pd-content::-webkit-scrollbar-thumb { background: var(--glass-border-h); border-radius: 3px; }
