@@ -20,8 +20,8 @@ const Contact = () => (
           <div className="contact-col">
             <p className="contact-col-title">FIND ME ON</p>
             {[
-              { href: "https://github.com/suunyshu-sketch", label: "GitHub", icon: <FaGithub /> },
-              { href: "https://linkedin.com/in/lakshmi-narayana-goud", label: "LinkedIn", icon: <FaLinkedinIn /> },
+              { href: "https://github.com/lakshmi-narayana-goud", label: "GitHub", icon: <FaGithub /> },
+              { href: "https://www.linkedin.com/in/lakshminarayana-goud-battini", label: "LinkedIn", icon: <FaLinkedinIn /> },
               { href: "https://x.com/ln_battini11", label: "Twitter / X", icon: <FaXTwitter /> },
             ].map(({ href, label, icon }) => (
               <a key={label} href={href} target="_blank" rel="noreferrer"

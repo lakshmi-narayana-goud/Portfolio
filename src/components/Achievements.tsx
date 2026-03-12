@@ -3,12 +3,12 @@ import "./styles/Achievements.css";
 const ACHIEVEMENTS = [
   {
     icon: "🏆", title: "CITD Technospark 2025", sub: "Winner",
-    desc: "First place at the CITD Technospark competition, recognized for excellence in AI/ML innovation.",
+    desc: "Won first place at the CITD Technospark competition organized at IARE. The project was evaluated on technical depth, real-world applicability, and presentation.",
     color: "var(--accent-amber)",
   },
   {
     icon: "🥉", title: "Codestorm-2K25 Hackathon", sub: "Third Prize",
-    desc: "Placed third in a competitive hackathon showcasing full-stack development and problem-solving skills.",
+    desc: "Placed third in Codestorm-2K25, a time-bound hackathon. Worked under pressure to design and present a working solution within the competition's deadline.",
     color: "var(--accent-cyan)",
   },
 ];
@@ -17,10 +17,12 @@ const CERTS = [
   {
     icon: "🔐", title: "Introduction to Cybersecurity",
     issuer: "Cisco", date: "Sep 2025",
+    skills: "Network threats, attack types, basic security practices",
   },
   {
     icon: "🤖", title: "GenAI: Power Up LLMs with RAG",
     issuer: "CITD", date: "Sep 2025",
+    skills: "Retrieval-Augmented Generation, LLM prompt engineering, vector stores",
   },
 ];
 
@@ -67,7 +69,7 @@ const Achievements = () => (
       <div className="ach-certs">
         <h4 className="ach-sub-title">Certifications</h4>
         <div className="ach-cert-list">
-          {CERTS.map(({ icon, title, issuer, date }) => (
+          {CERTS.map(({ icon, title, issuer, date, skills }) => (
             <div className="ach-cert glass" key={title}>
               <span className="ach-cert-icon">{icon}</span>
               <div>

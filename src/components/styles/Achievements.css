@@ -71,3 +71,11 @@
   .ach-grid { grid-template-columns:1fr 1fr; }
   .ach-bottom { grid-template-columns:1fr 1fr; }
 }
+
+.ach-cert-skills {
+  font-size: 11px;
+  color: var(--accent-cyan);
+  margin: 3px 0 0;
+  font-family: "JetBrains Mono", monospace;
+  opacity: 0.8;
+}
