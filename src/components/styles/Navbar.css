@@ -1,0 +1,102 @@
+.glass-nav {
+  background: rgba(3, 7, 18, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+  border-radius: 0 !important;
+}
+.header {
+  display: flex;
+  align-items: center;
+  max-width: var(--cMaxWidth);
+  width: 100%;
+  justify-content: space-between;
+  padding: 18px 24px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 9999;
+}
+.header ul {
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  margin: 0; padding: 0;
+  list-style: none;
+  gap: 32px;
+  align-items: center;
+}
+.header ul li {
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Syne", sans-serif;
+  transition: color 0.3s;
+}
+.header ul li:hover { color: var(--text); }
+.navbar-connect {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  color: var(--text-muted);
+  display: none;
+  transition: color 0.3s;
+  font-family: "JetBrains Mono", monospace;
+}
+.navbar-connect:hover { color: var(--accent-cyan); }
+.navbar-title {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  background: var(--grad-cp);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Ambient orbs */
+.nav-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 8;
+  animation: orbFloat 6s linear infinite;
+}
+.nav-orb-1 {
+  top: -150px; left: -100px;
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%);
+}
+.nav-orb-2 {
+  top: 30%; right: -100px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%);
+  animation-delay: -3s;
+}
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0,0); }
+  33% { transform: translate(20px, -15px); }
+  66% { transform: translate(-10px, 10px); }
+}
+.nav-fade {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(3,7,18,0.9), transparent);
+  pointer-events: none;
+  z-index: 9998;
+}
+@media (min-width: 900px) {
+  .navbar-connect { display: block; }
+  .header { padding: 20px 40px; }
+}
+@media (min-width: 1200px) {
+  .header ul { gap: 56px; font-size: 14px; }
+  .header { padding: 24px 60px; }
+}

@@ -1,0 +1,74 @@
+.icons-section {
+  position: fixed;
+  max-width: var(--cMaxWidth);
+  width: 100%;
+  bottom: 0;
+  z-index: 99;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.social-icons {
+  position: absolute;
+  left: 20px;
+  bottom: 30px;
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  pointer-events: all;
+  padding: 12px;
+}
+.social-icons span {
+  width: 44px; height: 44px;
+  position: relative;
+  display: flex;
+}
+.social-icons a {
+  --siLeft: 50%; --siTop: 50%;
+  position: absolute;
+  left: var(--siLeft, 50%);
+  top: var(--siTop, 50%);
+  transform: translate(-50%, -50%);
+  display: flex;
+  font-size: 22px;
+  color: var(--text-muted);
+  transition: color 0.3s;
+  will-change: left, top;
+}
+.social-icons a:hover { color: var(--accent-cyan); }
+.resume-button {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  white-space: nowrap;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "Syne", sans-serif;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color 0.3s;
+  pointer-events: all;
+  transform: rotate(-90deg);
+  transform-origin: right bottom;
+}
+.resume-button:hover { color: var(--accent-cyan); }
+.resume-button span {
+  font-size: 16px;
+  display: flex; align-items: center;
+}
+@media (min-width: 900px) {
+  .social-icons { display: flex; }
+  .social-icons a { font-size: 26px; }
+}
+@media (min-width: 768px) {
+  .resume-button {
+    transform: none;
+    font-size: 14px;
+    right: 32px;
+    bottom: 36px;
+  }
+}

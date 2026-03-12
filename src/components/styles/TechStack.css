@@ -1,0 +1,24 @@
+.techstack-section {
+  width: 100%;
+  position: relative;
+  height: var(--vh);
+  margin: 40px 0 -80px;
+  overflow: clip;
+}
+.techstack-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.tech-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+}

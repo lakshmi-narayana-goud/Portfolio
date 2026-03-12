@@ -1,0 +1,130 @@
+.proj-section {
+  position: relative; z-index: 1;
+  background: var(--bg);
+  padding: 80px 0 100px;
+}
+.proj-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 40px;
+}
+.proj-header h2 { font-size: clamp(36px,5vw,64px); font-weight:800; }
+.proj-count { font-family:"Syne",sans-serif; font-size:28px; color:var(--text-dim); }
+.proj-count-current { color:var(--text); font-weight:700; }
+
+/* Card */
+.proj-card {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(255,255,255,0.07);
+  transition: border-color 0.4s;
+  margin-bottom: 32px;
+}
+.proj-card:hover { border-color: var(--proj-accent, var(--accent-cyan)); }
+.proj-card-bg {
+  position: absolute; inset: 0;
+  opacity: 0.15; pointer-events: none;
+  transition: opacity 0.4s;
+}
+.proj-card:hover .proj-card-bg { opacity: 0.25; }
+.proj-card-body {
+  position: relative; z-index: 1;
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+}
+.proj-info { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+.proj-num-badge { display: flex; align-items: center; gap: 12px; }
+.proj-num {
+  font-family:"Syne",sans-serif; font-size:48px; font-weight:800;
+  color:var(--text-dim); line-height:1;
+}
+.proj-badge {
+  font-family:"JetBrains Mono",monospace; font-size:10px;
+  letter-spacing:2px; padding:4px 10px; border-radius:var(--radius-full);
+}
+.proj-title {
+  font-size:clamp(28px,4vw,48px); font-weight:800; margin:0;
+}
+.proj-category {
+  font-family:"JetBrains Mono",monospace; font-size:12px;
+  color:var(--text-dim); letter-spacing:1px; margin:0;
+}
+.proj-desc {
+  font-size:15px; line-height:1.7;
+  color:var(--text-muted); margin:0;
+  max-width:480px;
+}
+.proj-scale {
+  display:flex; flex-direction:column; gap:6px;
+}
+.proj-scale-item {
+  display:flex; align-items:center; gap:8px;
+  font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--text-dim);
+}
+.proj-scale-dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+.proj-tools { display:flex; flex-wrap:wrap; gap:6px; }
+.proj-tool {
+  font-size:11px; font-family:"JetBrains Mono",monospace;
+  padding:3px 10px;
+  background:var(--glass); border:1px solid var(--glass-border);
+  border-radius:var(--radius-full); color:var(--text-muted);
+}
+.proj-links { display:flex; gap:12px; flex-wrap:wrap; }
+.proj-link {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 20px; border-radius:var(--radius-full);
+  font-size:13px; font-weight:500; cursor:pointer;
+  transition:all 0.3s;
+}
+.proj-link:hover { border-color:var(--proj-accent,var(--accent-cyan)); color:var(--proj-accent,var(--accent-cyan)); }
+.proj-link-live {
+  background:rgba(6,182,212,0.08);
+  border-color:rgba(6,182,212,0.3);
+  color:var(--accent-cyan);
+}
+
+/* Visual panel */
+.proj-visual {
+  width: 340px; flex-shrink:0;
+  border-radius: var(--radius);
+  display:flex; align-items:center; justify-content:center;
+  min-height: 260px;
+  opacity: 0.7;
+  transition: opacity 0.4s;
+}
+.proj-card:hover .proj-visual { opacity: 1; }
+.proj-visual-inner { padding: 32px; width: 100%; }
+.proj-visual-title {
+  font-family:"Syne",sans-serif; font-size:28px; font-weight:800;
+  margin-bottom: 24px; letter-spacing: 2px;
+}
+.proj-visual-lines { display:flex; flex-direction:column; gap:8px; }
+.proj-visual-line { height:3px; border-radius:2px; }
+
+/* Navigation */
+.proj-nav { display:flex; align-items:center; justify-content:center; gap:20px; }
+.proj-arrow {
+  width:48px; height:48px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; cursor:pointer; border:none; color:var(--text);
+  transition:all 0.3s;
+}
+.proj-arrow:hover { border-color:var(--accent-cyan); color:var(--accent-cyan); }
+.proj-dots { display:flex; gap:10px; align-items:center; }
+.proj-dot {
+  width:8px; height:8px; border-radius:50%;
+  background:var(--glass-border); border:none; cursor:pointer;
+  transition:all 0.3s; padding:0;
+}
+.proj-dot-active { width:24px; border-radius:4px; }
+
+@media (max-width:1024px) {
+  .proj-card-body { flex-direction:column; }
+  .proj-visual { width:100%; min-height:180px; }
+}
+@media (max-width:600px) {
+  .proj-card-body { padding:24px; }
+  .proj-num { font-size:36px; }
+}

@@ -1,0 +1,73 @@
+.ach-section { padding: 80px 0 100px; }
+.ach-header { margin-bottom: 48px; }
+.ach-header h2 { font-size: clamp(32px,5vw,60px); font-weight:800; margin-bottom:10px; }
+.ach-header p { font-family:"JetBrains Mono",monospace; font-size:13px; color:var(--text-dim); letter-spacing:2px; margin:0; }
+
+.ach-grid { display:grid; grid-template-columns:1fr; gap:20px; margin-bottom:32px; }
+.ach-card {
+  display:flex; gap:24px; padding:32px 36px;
+  position:relative; overflow:hidden;
+  transition:all 0.3s; border-color:rgba(255,255,255,0.06);
+}
+.ach-card:hover {
+  border-color:var(--ach-color,var(--accent-cyan));
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(6,182,212,0.08);
+}
+.ach-glow {
+  position:absolute; top:-40px; right:-40px;
+  width:160px; height:160px;
+  background:radial-gradient(circle,rgba(6,182,212,0.08),transparent 70%);
+  pointer-events:none; opacity:0; transition:opacity 0.4s;
+}
+.ach-card:hover .ach-glow { opacity:1; }
+.ach-icon { font-size:36px; flex-shrink:0; }
+.ach-card-body { flex:1; }
+.ach-badge {
+  font-family:"JetBrains Mono",monospace; font-size:10px; letter-spacing:2px;
+  padding:3px 10px; border-radius:var(--radius-full);
+  background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.2);
+  color:var(--ach-color,var(--accent-cyan)); display:inline-block; margin-bottom:8px;
+}
+.ach-card-title { font-size:20px; font-weight:700; margin-bottom:8px; }
+.ach-card-desc { font-size:14px; color:var(--text-muted); line-height:1.6; margin:0; }
+
+.ach-bottom { display:grid; grid-template-columns:1fr; gap:24px; }
+.ach-sub-title {
+  font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:3px;
+  color:var(--text-dim); text-transform:uppercase; margin:0 0 16px;
+}
+
+.ach-cert-list { display:flex; flex-direction:column; gap:12px; }
+.ach-cert {
+  display:flex; gap:16px; align-items:center;
+  padding:16px 20px; border-color:rgba(255,255,255,0.06);
+  transition:border-color 0.3s;
+}
+.ach-cert:hover { border-color:var(--glass-border-h); }
+.ach-cert-icon { font-size:22px; }
+.ach-cert-title { font-size:14px; font-weight:500; margin-bottom:2px; }
+.ach-cert-meta { font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--text-dim); }
+
+.ach-coding-list { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.ach-coding-card {
+  display:flex; flex-direction:column; gap:6px;
+  padding:20px; border-color:rgba(255,255,255,0.06);
+  transition:all 0.3s; cursor:pointer;
+}
+.ach-coding-card:hover {
+  border-color:var(--ach-color,var(--accent-cyan));
+  transform:translateY(-3px);
+}
+.ach-coding-icon { font-size:24px; }
+.ach-coding-platform { font-size:13px; font-weight:600; color:var(--text-muted); }
+.ach-coding-stat {
+  font-family:"Syne",sans-serif; font-size:22px; font-weight:800;
+  color:var(--ach-color,var(--accent-cyan));
+}
+.ach-coding-sub { font-family:"JetBrains Mono",monospace; font-size:10px; color:var(--text-dim); }
+
+@media (min-width:768px) {
+  .ach-grid { grid-template-columns:1fr 1fr; }
+  .ach-bottom { grid-template-columns:1fr 1fr; }
+}
