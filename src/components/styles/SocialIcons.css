@@ -9,7 +9,7 @@
   pointer-events: none;
 }
 
-/* Social icons — left side, desktop only */
+/* ── Social icons — vertical column, left side ── */
 .social-icons {
   position: absolute;
   left: 20px;
@@ -39,66 +39,74 @@
 }
 .social-icons a:hover { color: var(--accent-cyan); }
 
-/* ── Resume button ── */
+/* ── Resume button — DESKTOP DEFAULT: rotated vertical text ── */
 .resume-button {
   position: absolute;
   right: 20px;
-  bottom: 20px;
+  bottom: 40px;
   display: flex;
-  gap: 8px;
+  gap: 6px;
   align-items: center;
   white-space: nowrap;
-  font-family: "Syne", sans-serif;
+  letter-spacing: 3px;
+  font-size: 12px;
   font-weight: 600;
+  font-family: "Syne", sans-serif;
+  color: var(--text-dim);
   cursor: pointer;
   pointer-events: all;
-  transition: color 0.3s, background 0.3s, border-color 0.3s;
-
-  /* Mobile: pill button — clearly visible */
-  font-size: 13px;
-  letter-spacing: 2px;
-  color: var(--text);
-  background: rgba(6, 182, 212, 0.12);
-  border: 1px solid rgba(6, 182, 212, 0.35);
-  border-radius: 50px;
-  padding: 10px 20px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  /* No rotation on mobile */
+  transition: color 0.3s;
+  /* Rotated vertical — desktop style */
+  transform: rotate(-90deg);
+  transform-origin: right bottom;
+  /* No pill on desktop */
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
-.resume-button:hover {
-  color: var(--accent-cyan);
-  background: rgba(6, 182, 212, 0.2);
-  border-color: rgba(6, 182, 212, 0.7);
-}
+.resume-button:hover { color: var(--accent-cyan); }
 .resume-button span {
   font-size: 16px;
   display: flex;
   align-items: center;
 }
 
-/* Desktop: rotated text on the side */
+/* Desktop: show social icons too */
 @media (min-width: 900px) {
   .social-icons { display: flex; }
   .social-icons a { font-size: 26px; }
+}
+
+/* ── MOBILE OVERRIDE: pill button, no rotation ── */
+@media (max-width: 899px) {
+  .icons-section {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+  }
 
   .resume-button {
-    /* Revert to rotated style on desktop */
-    background: none;
-    border: none;
-    border-radius: 0;
-    padding: 0;
+    /* Override every desktop property */
+    transform: none !important;
+    transform-origin: unset !important;
+    right: 16px;
+    bottom: 16px;
     font-size: 12px;
-    letter-spacing: 3px;
-    color: var(--text-dim);
-    right: 20px;
-    bottom: 40px;
-    transform: rotate(-90deg);
-    transform-origin: right bottom;
+    letter-spacing: 2px;
+    color: var(--text) !important;
+    background: rgba(6, 182, 212, 0.15) !important;
+    border: 1px solid rgba(6, 182, 212, 0.4) !important;
+    border-radius: 50px !important;
+    padding: 9px 18px !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
   }
   .resume-button:hover {
-    background: none;
-    border-color: transparent;
-    color: var(--accent-cyan);
+    color: var(--accent-cyan) !important;
+    background: rgba(6, 182, 212, 0.25) !important;
   }
 }
